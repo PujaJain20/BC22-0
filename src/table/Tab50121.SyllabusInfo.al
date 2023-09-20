@@ -1,4 +1,4 @@
-table 50121 SyllabusInfo
+table 50195 SyllabusInfo
 {
     DataClassification = ToBeClassified;
 

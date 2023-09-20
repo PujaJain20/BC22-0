@@ -1,4 +1,4 @@
-table 50116 EmployeeInfo
+table 50191 EmployeeInfo
 {
     DataClassification = ToBeClassified;
 

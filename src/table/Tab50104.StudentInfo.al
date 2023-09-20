@@ -1,4 +1,4 @@
-table 50104 StudentInfo
+table 50188 StudentInfo
 {
 
     DataClassification = ToBeClassified;
