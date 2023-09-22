@@ -108,27 +108,22 @@ table 50191 "Employee Details"
         }
     }
 
+
     var
         myInt: Integer;
 
     trigger OnInsert()
+    var
+        setup: Record "Employee setup";
+        Nomgt: Codeunit NoSeriesManagement;
     begin
-
+        if ID = '' then
+            setup.Get();
+        ID := Nomgt.GetNextNo(setup."Employee No. series", WorkDate, true)
     end;
 
-    trigger OnModify()
-    begin
 
-    end;
 
-    trigger OnDelete()
-    begin
 
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
 
 }
