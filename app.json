@@ -20,6 +20,7 @@
       "to": 50199
     }
   ],
+  "target": "OnPrem",
   "resourceExposurePolicy": {
     "allowDebugging": true,
     "allowDownloadingSource": true,

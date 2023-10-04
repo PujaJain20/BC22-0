@@ -10,8 +10,8 @@
             "server": "http://localhost",
             "serverInstance": "BC220",
             "authentication": "Windows",
-            "startupObjectId":22,
-            "startupObjectType": "Page",
+            "startupObjectId":50173,
+            "startupObjectType": "Report",
             "breakOnError": "All",
             "port": 7049,
             "launchBrowser": true,
@@ -19,6 +19,7 @@
             "enableSqlInformationDebugger": true,
             "tenant": "default",
             "usePublicURLFromServer": true,
+        
             "schemaUpdateMode": "ForceSync"
         }
     ]
