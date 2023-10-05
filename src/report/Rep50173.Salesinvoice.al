@@ -55,6 +55,11 @@ report 50173 "Sales invoice"
 
                 end;
             }
+            dataitem("Company Information"; "Company Information")
+            {
+                column(Name; Name) { }
+                column(City; City) { }
+            }
             trigger OnAfterGetRecord()
             var
                 myInt: Integer;
@@ -80,25 +85,8 @@ report 50173 "Sales invoice"
 
             end;
 
-
-
-
-
-
-
-
-
         }
-        dataitem("Company Information"; "Company Information")
-        {
-            column(Name; Name) { }
-            column(City; City) { }
-        }
-
     }
-
-
-
     var
         myInt: Integer;
         "Sales_invoiceheader": Record "Sales Invoice Header";
