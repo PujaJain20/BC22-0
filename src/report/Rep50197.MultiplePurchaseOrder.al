@@ -8,11 +8,9 @@ report 50197 "Multiple Purchase Order"
     {
         dataitem("Purchase Header"; "Purchase Header")
         {
+
             dataitem("Purchase Line"; "Purchase Line")
             {
-
-
-
                 DataItemLink = "Document No." = field("No.");
                 dataitem(copyLoop; "Integer")
                 {
@@ -22,6 +20,7 @@ report 50197 "Multiple Purchase Order"
                         DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
                         column(Posting_Date; "Purchase Header"."Posting Date")
                         { }
+                        column(Line_No_; "Purchase Line"."Line No.") { }
 
                         column(VAT_Registration_No_; "Purchase Header"."VAT Registration No.") { }
                         column(Currency_Code; "Purchase Header"."Currency Code") { }
@@ -77,14 +76,20 @@ report 50197 "Multiple Purchase Order"
                     myInt: Integer;
                 begin
                     clear("Vendor Name");
+                    Clear(City);
+                    clear(Address);
+                    Clear("Vendor No.");
+                    Clear("Phone No.");
+
                     if Vendor.get("Buy-from Vendor No.") then begin
-                        repeat
-                            "Vendor Name" := Vendor.Name;
-                            City := Vendor.City;
-                            Address := Vendor.Address;
-                            "Vendor No." := Vendor."No.";
-                            "Phone No." := Vendor."Phone No.";
-                        until Vendor.Next() = 0;
+
+                        "Vendor Name" := Vendor.Name;
+                        City := Vendor.City;
+                        Address := Vendor.Address;
+                        "Vendor No." := Vendor."No.";
+                        "Phone No." := Vendor."Phone No.";
+
+
                     end;
                 end;
 

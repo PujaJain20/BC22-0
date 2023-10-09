@@ -95,13 +95,10 @@ page 50190 "Auto Caption"
         fieldTem.SetRange(TableNo, "Table ID");
         if fieldTem.FindSet() then
             repeat
-
-
                 fieldArr[i] [1] := format(fieldTem."No.");
                 fieldArr[i] [2] := fieldTem."Field Caption";
                 i += 1;
             until fieldTem.Next() = 0;
-
 
         //  Message('%1', varCaption);
 
