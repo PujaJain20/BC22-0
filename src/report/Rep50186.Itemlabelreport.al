@@ -10,8 +10,6 @@ report 50186 "Item label report"
         dataitem(Item; Item)
         {
 
-
-
             dataitem(copyloop; Integer)
             {
                 DataItemTableView = SORTING(Number);
@@ -53,8 +51,8 @@ report 50186 "Item label report"
 
             }
             trigger OnAfterGetRecord()
-            var
-                myInt: Integer;
+
+
             begin
                 ITEMVariant.Reset();
                 "ItemVariant".SetRange("Item No.", Item."No.");

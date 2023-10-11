@@ -95,9 +95,10 @@ report 50197 "Multiple Purchase Order"
 
             }
             trigger OnAfterGetRecord()
-            var
-                myInt: Integer;
+
+
             begin
+                "purchase rec line".Reset();
                 "purchase rec line".SetRange("Document No.", "Purchase Header"."No.");
                 if "purchase rec line".FindFirst() then
                     repeat

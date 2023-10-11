@@ -9,13 +9,7 @@ reportextension 50181 "Purchase order Ex" extends "Purchase Order"
             column(Type; Type) { }
         }
 
-
-
-
-
     }
-
-
 
     rendering
     {
