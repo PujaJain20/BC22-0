@@ -1,14 +1,6 @@
 xmlport 50195 "Xmlport import Item"
-
-
-
 {
     Format = Xml;
-
-
-
-
-
     schema
     {
         textelement(Root)

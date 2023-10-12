@@ -57,7 +57,6 @@ report 50191 CustomPurchaseorder
                     if PurchaseLIne.FindFirst() then begin
                         PurchaseLIne.CalcSums("Amount Including VAT");
                         Amount := PurchaseLIne."Amount Including VAT";
-
                         PurchaseLIne.CalcSums("Line Discount %");
                         SalesTax := PurchaseLIne."Line Discount %";
                     end;

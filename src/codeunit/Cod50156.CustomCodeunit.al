@@ -10,6 +10,6 @@ codeunit 50156 "Custom Codeunit"
 
 
 
-    var
-        myInt: Integer;
+
+
 }

@@ -36,8 +36,8 @@ report 50173 "Sales invoice"
                 column(Document_No_; "Document No.") { }
                 column(Line_No_; "Line No.") { }
                 trigger OnAfterGetRecord()
-                var
-                    myInt: Integer;
+
+
                 begin
                     clear(qty);
                     clear(qty1);
@@ -61,8 +61,7 @@ report 50173 "Sales invoice"
                 column(City; City) { }
             }
             trigger OnAfterGetRecord()
-            var
-                myInt: Integer;
+
 
             begin
                 Clear("Vendor Name");
@@ -88,7 +87,7 @@ report 50173 "Sales invoice"
         }
     }
     var
-        myInt: Integer;
+
         "Sales_invoiceheader": Record "Sales Invoice Header";
         "Vendor Name": Text[100];
         Customer: Record Customer;

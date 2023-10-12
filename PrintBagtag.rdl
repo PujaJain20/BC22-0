@@ -290,7 +290,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=IIF(Fields!OutputNo.Value=Fields!ModOfBagtag.Value,(Fields!Quantity.Value Mod Fields!BagTag.Value),Fields!BagTag.Value)</Value>
+                                      <Value>=IIF(Fields!OutputNo.Value=Fields!Quient.Value,(Fields!Quantity.Value Mod Fields!BagTag.Value),Fields!BagTag.Value)</Value>
                                       <Style>
                                         <Color>White</Color>
                                       </Style>

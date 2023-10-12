@@ -48,7 +48,7 @@ report 50174 "PrintBagtag"
 
                     begin
                         if NoOfCopies = 0 then begin
-                            NoOfLoops := ABS(NoOfCopies) + BasedOnmod;
+                            NoOfLoops := BasedOnmod;
                             CopyText := '';
                             SETRANGE(Number, 1, NoOfLoops);
                             OutputNo := 1;
