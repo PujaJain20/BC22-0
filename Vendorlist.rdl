@@ -11,100 +11,6 @@
       <rd:DataSourceID>ef5d4cd5-7bfd-426e-8f17-6552042932c0</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Pay_to_Vendor_No_">
-          <DataField>Pay_to_Vendor_No_</DataField>
-        </Field>
-        <Field Name="No">
-          <DataField>No</DataField>
-        </Field>
-        <Field Name="Pay_to_Name">
-          <DataField>Pay_to_Name</DataField>
-        </Field>
-        <Field Name="Pay_to_City">
-          <DataField>Pay_to_City</DataField>
-        </Field>
-        <Field Name="Pay_to_Address">
-          <DataField>Pay_to_Address</DataField>
-        </Field>
-        <Field Name="Pay_to_Contact">
-          <DataField>Pay_to_Contact</DataField>
-        </Field>
-        <Field Name="TotalAmount">
-          <DataField>TotalAmount</DataField>
-        </Field>
-        <Field Name="TotalAmountFormat">
-          <DataField>TotalAmountFormat</DataField>
-        </Field>
-        <Field Name="Posting_Date">
-          <DataField>Posting_Date</DataField>
-        </Field>
-        <Field Name="RefDate">
-          <DataField>RefDate</DataField>
-        </Field>
-        <Field Name="LMTD">
-          <DataField>LMTD</DataField>
-        </Field>
-        <Field Name="LMTDFormat">
-          <DataField>LMTDFormat</DataField>
-        </Field>
-        <Field Name="Monthname">
-          <DataField>Monthname</DataField>
-        </Field>
-        <Field Name="TMTD">
-          <DataField>TMTD</DataField>
-        </Field>
-        <Field Name="TMTDFormat">
-          <DataField>TMTDFormat</DataField>
-        </Field>
-        <Field Name="FMTD">
-          <DataField>FMTD</DataField>
-        </Field>
-        <Field Name="FMTDFormat">
-          <DataField>FMTDFormat</DataField>
-        </Field>
-        <Field Name="FMA">
-          <DataField>FMA</DataField>
-        </Field>
-        <Field Name="FMAFormat">
-          <DataField>FMAFormat</DataField>
-        </Field>
-        <Field Name="SMA">
-          <DataField>SMA</DataField>
-        </Field>
-        <Field Name="SMAFormat">
-          <DataField>SMAFormat</DataField>
-        </Field>
-        <Field Name="LastNextMonth">
-          <DataField>LastNextMonth</DataField>
-        </Field>
-        <Field Name="Last3Month">
-          <DataField>Last3Month</DataField>
-        </Field>
-        <Field Name="Last4Month">
-          <DataField>Last4Month</DataField>
-        </Field>
-        <Field Name="Last5Month">
-          <DataField>Last5Month</DataField>
-        </Field>
-        <Field Name="Last6Month">
-          <DataField>Last6Month</DataField>
-        </Field>
-        <Field Name="Total">
-          <DataField>Total</DataField>
-        </Field>
-        <Field Name="TotalFormat">
-          <DataField>TotalFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -116,7 +22,7 @@
                   <Width>1.07475in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.92891in</Width>
+                  <Width>1.93517in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.75183in</Width>
@@ -610,7 +516,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TotalAmount.Value</Value>
+                                  <Value>=Sum(Fields!TotalAmount.Value)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -636,14 +542,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="LMTD">
+                        <Textbox Name="TotalAmoun">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!LMTD.Value</Value>
+                                  <Value>=Sum(Fields!TotalAmoun.Value)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -652,7 +558,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>LMTD</rd:DefaultName>
+                          <rd:DefaultName>TotalAmoun</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -669,14 +575,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TMTD">
+                        <Textbox Name="TotalAmountof3Month">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TMTD.Value</Value>
+                                  <Value>=Sum(Fields!TotalAmountof3Month.Value)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -685,7 +591,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TMTD</rd:DefaultName>
+                          <rd:DefaultName>TotalAmountof3Month</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -702,14 +608,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="FMTD">
+                        <Textbox Name="TotalAmountof4Month">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FMTD.Value</Value>
+                                  <Value>=Sum(Fields!TotalAmountof4Month.Value)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -718,7 +624,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>FMTD</rd:DefaultName>
+                          <rd:DefaultName>TotalAmountof4Month</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -735,14 +641,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="FMA">
+                        <Textbox Name="TotalAmountof5Month">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FMA.Value</Value>
+                                  <Value>=Sum(Fields!TotalAmountof5Month.Value)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -751,7 +657,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>FMA</rd:DefaultName>
+                          <rd:DefaultName>TotalAmountof5Month</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -768,14 +674,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="SMA">
+                        <Textbox Name="TotalAmountof6Month">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SMA.Value</Value>
+                                  <Value>=Sum(Fields!TotalAmountof6Month.Value)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -784,7 +690,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>SMA</rd:DefaultName>
+                          <rd:DefaultName>TotalAmountof6Month</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -837,6 +743,344 @@
                     </TablixCell>
                   </TablixCells>
                 </TablixRow>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Pay_to_Vendor_No_2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Pay_to_Vendor_No_.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Pay_to_Vendor_No_</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Pay_to_Name2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Pay_to_Name.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Pay_to_Name</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Pay_to_City2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Pay_to_City.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Pay_to_City</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalAmount2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!TotalAmount.Value)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TotalAmount</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalAmoun2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!TotalAmoun.Value)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TotalAmoun</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalAmountof3Month2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!TotalAmountof3Month.Value)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TotalAmountof3Month</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalAmountof4Month2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!TotalAmountof4Month.Value)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TotalAmountof4Month</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalAmountof5Month2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!TotalAmountof5Month.Value)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TotalAmountof5Month</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalAmountof6Month2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!TotalAmountof6Month.Value)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TotalAmountof6Month</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Total2">
+                          <CanGrow>true</CanGrow>
+                          <UserSort>
+                            <SortExpression>=Fields!Total.Value</SortExpression>
+                          </UserSort>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Total.Value)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Total</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
@@ -857,21 +1101,42 @@
               <TablixMembers>
                 <TablixMember>
                   <FixedData>true</FixedData>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Details">
+                  <Group Name="Pay_to_Vendor_No_">
                     <GroupExpressions>
                       <GroupExpression>=Fields!Pay_to_Vendor_No_.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Total.Value</Value>
+                      <Value>=Sum(Fields!Total.Value)</Value>
                       <Direction>Descending</Direction>
                     </SortExpression>
                   </SortExpressions>
                   <TablixMembers>
-                    <TablixMember />
+                    <TablixMember>
+                      <Group Name="Details" />
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!Total.Value</Value>
+                          <Direction>Descending</Direction>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixMembers>
+                        <TablixMember />
+                      </TablixMembers>
+                      <Visibility>
+                        <Hidden>=IIF(Fields!ToggleMark.Value="True",False,True)</Hidden>
+                      </Visibility>
+                    </TablixMember>
+                    <TablixMember>
+                      <Visibility>
+                        <Hidden>=IIF(Fields!ToggleMark.Value="False",False,True)</Hidden>
+                      </Visibility>
+                      <KeepWithGroup>Before</KeepWithGroup>
+                    </TablixMember>
                   </TablixMembers>
                 </TablixMember>
               </TablixMembers>
@@ -883,8 +1148,8 @@
                 <Direction>Descending</Direction>
               </SortExpression>
             </SortExpressions>
-            <Height>0.8125in</Height>
-            <Width>10.04207in</Width>
+            <Height>1.0625in</Height>
+            <Width>10.04833in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -892,14 +1157,14 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.8125in</Height>
+        <Height>1.08333in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>10.04833in</Width>
+      <Width>10.07958in</Width>
       <Page>
         <PageHeader>
           <Height>1in</Height>
@@ -942,9 +1207,22 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>TOP PURCHASE  VENDOR LIST</Value>
+                      <Value>  VENDOR  TOP  LIST</Value>
                       <Style>
-                        <FontSize>14pt</FontSize>
+                        <FontSize>12pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>MonthWise</Value>
+                      <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -956,8 +1234,8 @@
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
               <Top>0.09028in</Top>
-              <Height>0.25in</Height>
-              <Width>3.54749in</Width>
+              <Height>0.5in</Height>
+              <Width>3.00366in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1042,19 +1320,13 @@
           </Style>
         </PageHeader>
         <PageHeight>11.69in</PageHeight>
-        <PageWidth>10.3in</PageWidth>
+        <PageWidth>11.5in</PageWidth>
         <InteractiveHeight>11.69in</InteractiveHeight>
         <InteractiveWidth>10.3in</InteractiveWidth>
         <Style />
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1094,4 +1366,107 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Pay_to_Vendor_No_">
+          <DataField>Pay_to_Vendor_No_</DataField>
+        </Field>
+        <Field Name="No">
+          <DataField>No</DataField>
+        </Field>
+        <Field Name="Pay_to_Name">
+          <DataField>Pay_to_Name</DataField>
+        </Field>
+        <Field Name="Pay_to_City">
+          <DataField>Pay_to_City</DataField>
+        </Field>
+        <Field Name="Pay_to_Address">
+          <DataField>Pay_to_Address</DataField>
+        </Field>
+        <Field Name="Pay_to_Contact">
+          <DataField>Pay_to_Contact</DataField>
+        </Field>
+        <Field Name="TotalAmount">
+          <DataField>TotalAmount</DataField>
+        </Field>
+        <Field Name="TotalAmountFormat">
+          <DataField>TotalAmountFormat</DataField>
+        </Field>
+        <Field Name="TotalAmoun">
+          <DataField>TotalAmoun</DataField>
+        </Field>
+        <Field Name="TotalAmounFormat">
+          <DataField>TotalAmounFormat</DataField>
+        </Field>
+        <Field Name="TotalAmountof3Month">
+          <DataField>TotalAmountof3Month</DataField>
+        </Field>
+        <Field Name="TotalAmountof3MonthFormat">
+          <DataField>TotalAmountof3MonthFormat</DataField>
+        </Field>
+        <Field Name="TotalAmountof4Month">
+          <DataField>TotalAmountof4Month</DataField>
+        </Field>
+        <Field Name="TotalAmountof4MonthFormat">
+          <DataField>TotalAmountof4MonthFormat</DataField>
+        </Field>
+        <Field Name="TotalAmountof5Month">
+          <DataField>TotalAmountof5Month</DataField>
+        </Field>
+        <Field Name="TotalAmountof5MonthFormat">
+          <DataField>TotalAmountof5MonthFormat</DataField>
+        </Field>
+        <Field Name="TotalAmountof6Month">
+          <DataField>TotalAmountof6Month</DataField>
+        </Field>
+        <Field Name="TotalAmountof6MonthFormat">
+          <DataField>TotalAmountof6MonthFormat</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="ToggleMark">
+          <DataField>ToggleMark</DataField>
+        </Field>
+        <Field Name="RefDate">
+          <DataField>RefDate</DataField>
+        </Field>
+        <Field Name="Location">
+          <DataField>Location</DataField>
+        </Field>
+        <Field Name="Monthname">
+          <DataField>Monthname</DataField>
+        </Field>
+        <Field Name="LastNextMonth">
+          <DataField>LastNextMonth</DataField>
+        </Field>
+        <Field Name="Last3Month">
+          <DataField>Last3Month</DataField>
+        </Field>
+        <Field Name="InVoiceNo">
+          <DataField>InVoiceNo</DataField>
+        </Field>
+        <Field Name="Last4Month">
+          <DataField>Last4Month</DataField>
+        </Field>
+        <Field Name="Last5Month">
+          <DataField>Last5Month</DataField>
+        </Field>
+        <Field Name="Last6Month">
+          <DataField>Last6Month</DataField>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+        </Field>
+        <Field Name="TotalFormat">
+          <DataField>TotalFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

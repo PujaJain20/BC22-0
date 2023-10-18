@@ -36,16 +36,12 @@ report 50170 "Print Voucher"
                 column(Source_Code; "Source Code") { }
                 column(VNo; VNo) { }
                 column(VName; VName) { }
-
-
                 dataitem("Company Information"; "Company Information")
                 {
                     column(Name; Name) { }
                 }
 
                 trigger OnPreDataItem()
-
-
                 begin
                     "G/L Entry".SetRange("Entry No.", "G/L Register"."From Entry No.", "G/L Register"."To Entry No.");
                 end;

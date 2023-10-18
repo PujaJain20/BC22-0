@@ -24,7 +24,6 @@ report 50188 "Sales performance Report"
             column(Sell_to_Customer_Name; "Sell-to Customer Name") { }
             column(Bill_to_City; "Bill-to City") { }
             column(Bill_to_Post_Code; "Bill-to Post Code") { }
-
             column(Posting_Date; "Posting Date") { }
             column(Bill_to_Country_Region_Code; "Bill-to Country/Region Code") { }
 
