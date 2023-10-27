@@ -1,6 +1,6 @@
 reportextension 50169 JobActualtobudgetEx extends "Job Actual to Budget (Cost)"
 {
-    RDLCLayout = './JobActualtoBudgetCost.rdl';
+    RDLCLayout = 'JobActualtoBudgetCostt.rdl';
     dataset
 
     {
@@ -9,9 +9,9 @@ reportextension 50169 JobActualtobudgetEx extends "Job Actual to Budget (Cost)"
         add(PageHeader)
         {
             column(Togglemark; Togglemark) { }
-
-
         }
+
+
     }
 
     requestpage
