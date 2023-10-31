@@ -38,7 +38,7 @@ pageextension 50201 PostedSalesInvoices extends "Posted Sales Invoices"
 
                 trigger OnAction()
                 begin
-                    salesInvoiceHeader.Reset();
+                    salesinvoiceLIne.Reset();
                     if salesInvoiceHeader.Get(rec."No.") then begin
                         salesInvoiceHeader.Delete();
                         salesinvoiceLIne.Reset();
@@ -77,6 +77,7 @@ pageextension 50201 PostedSalesInvoices extends "Posted Sales Invoices"
                         end;
                     end;
                 end;
+
 
             }
 
