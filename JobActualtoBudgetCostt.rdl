@@ -1532,6 +1532,7 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -2043,7 +2044,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!JobDiffBuff__Total_Cost_.Value</Value>
+                                                    <Value>=Sum(Fields!JobDiffBuff__Total_Cost_.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=Fields!JobDiffBuff__Total_Cost_Format.Value</Format>
@@ -2127,7 +2128,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=IIF(ReportItems!JobDiffBuff__Budgeted_Total_Cost_4.Value = 0.00, 0, (100 * (ReportItems!Variance4.Value / ReportItems!JobDiffBuff__Budgeted_Total_Cost_4.Value)))</Value>
+                                                    <Value>=IIF((ReportItems!JobDiffBuff__Budgeted_Total_Cost_4.Value=0 AND Fields!JobDiffBuff__Total_Cost_.Value = 0) ,100, ReportItems!Variance4.Value / iif (ReportItems!JobDiffBuff__Budgeted_Total_Cost_4.Value=0,1,ReportItems!JobDiffBuff__Budgeted_Total_Cost_4.Value)*100)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=Fields!Variance__Format.Value</Format>
@@ -2313,7 +2314,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!Variance.Value)</Value>
+                                                    <Value>=Fields!Variance.Value</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=Fields!VarianceFormat.Value</Format>
@@ -2821,6 +2822,12 @@ End Function
         <Field Name="CompanyInformation_Name">
           <DataField>CompanyInformation_Name</DataField>
         </Field>
+        <Field Name="Detail">
+          <DataField>Detail</DataField>
+        </Field>
+        <Field Name="ToggleMark">
+          <DataField>ToggleMark</DataField>
+        </Field>
         <Field Name="BudgetOptionText">
           <DataField>BudgetOptionText</DataField>
         </Field>
@@ -2988,9 +2995,6 @@ End Function
         </Field>
         <Field Name="Integer_Number">
           <DataField>Integer_Number</DataField>
-        </Field>
-        <Field Name="Togglemark">
-          <DataField>Togglemark</DataField>
         </Field>
       </Fields>
       <Query>

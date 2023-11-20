@@ -1,27 +1,19 @@
-table 50218 EmployeeInformation
+table 50256 standardvalue
 {
     DataClassification = ToBeClassified;
 
     fields
     {
-        field(1; "No."; code[20])
+        field(1; value; text[50])
         {
             DataClassification = ToBeClassified;
 
-        }
-        field(2; Name; Text[50])
-        {
-            DataClassification = ToBeClassified;
-        }
-        field(3; Documents; Text[50])
-        {
-            DataClassification = ToBeClassified;
         }
     }
 
     keys
     {
-        key(Key1; "No.")
+        key(Key1; value)
         {
             Clustered = true;
         }

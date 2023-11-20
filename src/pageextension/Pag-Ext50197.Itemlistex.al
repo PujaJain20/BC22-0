@@ -21,6 +21,22 @@ pageextension 50197 Itemlistex extends "Item List"
                     Xmlport.Run(50195);
                 end;
             }
+            action(CopyNotes)
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+
+                var
+                    CopyLinksAndNotesDialog: Page "Copy Links and Notes Dialog";
+                begin
+                    // CopyLinksAndNotesDialog.SetItemInfo(Rec."No.", Rec.Description);
+                    //  if CopyLinksAndNotesDialog.RunModal() = Action::OK then
+                    //  CopyLinksAndNotesDialog.CopyLinksAndNotes();
+                end;
+
+
+            }
         }
     }
 

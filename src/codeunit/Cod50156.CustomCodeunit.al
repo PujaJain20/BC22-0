@@ -4,9 +4,20 @@ codeunit 50156 "Custom Codeunit"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, 'OnAfterSubstituteReport', '', false, false)]
     local procedure OnSubstituteReport(ReportId: Integer; var NewReportId: Integer)
     begin
-        if ReportId = Report::"Standard Purchase - Order" then
-            NewReportId := Report::CustomPurchaseorder;
+        if ReportId = Report::"Pick Instruction" then
+            NewReportId := Report::PickInstruction;
     end;
+
+    // [EventSubscriber(ObjectType::page, page::"Sales Order", OnAfterActionEvent, 'Pick instruction', false, false)]
+    // local procedure OnAfterActionEvent(var Rec: Record "Sales Header")
+    // begin
+
+    //     Report.Run(50281, true, false, Rec);
+    //     Report.run(214, true, false, Rec);
+
+
+    // end;
+
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Customer Templ. Mgt.", OnBeforeApplyTemplate, '', false, false)]
     procedure ApplyTemplate(var Customer: Record Customer; CustomerTempl: Record "Customer Templ."; var IsHandled: Boolean)
@@ -89,6 +100,7 @@ codeunit 50156 "Custom Codeunit"
         if Report.SaveAs(reportSelections."Report ID", ReportParameters, ReportFormat::Pdf, OutStr, recref) then begin
             EmailAddress := Customer."E-Mail";
             EmailMessage.Create(EmailAddress, 'This is the subject', 'This is the body');
+            Email.OpenInEditor(EmailMessage, Enum::"Email Scenario"::Default);
             EmailMessage.AddAttachment('FileName.pdf', 'PDF', InStr);
             if Email.Send(EmailMessage) then
                 Message('Email sent %1', Customer."E-Mail");
@@ -96,6 +108,7 @@ codeunit 50156 "Custom Codeunit"
 
         end;
     end;
+
 
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', true, true)]
     local procedure OnBeforeDrillDown(DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef);
@@ -145,6 +158,12 @@ codeunit 50156 "Custom Codeunit"
     end;
 
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Document-Mailing", OnBeforeSendEmail, '', false, false)]
+    local procedure OnBeforeSendEmail(var TempEmailItem: Record "Email Item" temporary);
+    begin
+        TempEmailItem."Send CC" := '111@q.com;333@b.com';
+        TempEmailItem."Send BCC" := '222@c.com';
+    end;
 
 
 

@@ -56,6 +56,18 @@ report 50129 ItemListReport
                     {
 
                     }
+                    field(ConvertCaps; ConvertCaps)
+                    {
+                        trigger OnValidate()
+                        var
+                            myInt: Integer;
+                        begin
+                            Newstring := UpperCase(ConvertCaps);
+                            ConvertCaps := Newstring;
+
+                        end;
+                    }
+
                 }
             }
         }
@@ -77,4 +89,6 @@ report 50129 ItemListReport
         CopyText: Text[30];
         OutputNo: Integer;
         FormatDocument: Codeunit "Format Document";
+        ConvertCaps: text[50];
+        Newstring: text[50];
 }

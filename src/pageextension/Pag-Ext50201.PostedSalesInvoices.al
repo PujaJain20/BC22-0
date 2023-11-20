@@ -17,8 +17,10 @@ pageextension 50201 PostedSalesInvoices extends "Posted Sales Invoices"
 
                 trigger OnAction()
                 begin
-                    salesInvoiceHeader.Reset();
+
                     if Customer.Get(rec."Sell-to Customer No.") then begin
+
+                        salesInvoiceHeader.Reset();
                         salesInvoiceHeader.SetRange("Sell-to Customer No.", rec."Sell-to Customer No.");
                         if salesInvoiceHeader.FindFirst() then
                             repeat

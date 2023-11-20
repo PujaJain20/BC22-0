@@ -1,6 +1,6 @@
-page 50218 EmployeeInformation
+page 50269 CardpartPage
 {
-    PageType = Card;
+    PageType = CardPart;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = EmployeeInformation;
@@ -9,37 +9,22 @@ page 50218 EmployeeInformation
     {
         area(Content)
         {
-            group(GroupName)
+            cuegroup(GroupName)
             {
                 field(ID; Rec."No.")
                 {
-                    ApplicationArea = All;
-
+                    ApplicationArea = all;
                 }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = all;
                 }
+                field(Documents; Rec.Documents)
+                {
+
+                }
+
             }
-        }
-        area(FactBoxes)
-        {
-
-
-            part("Attached Documents"; "Document Attachment Factbox")
-            {
-                ApplicationArea = All;
-                Caption = 'Attachments';
-                SubPageLink = "Table ID" = CONST(50218),
-                              "No." = FIELD("No.");
-                Visible = true;
-            }
-
-            part(Part2; CardpartPage)
-            {
-                Caption = 'Invoices';
-            }
-
         }
     }
 
@@ -58,7 +43,6 @@ page 50218 EmployeeInformation
             }
         }
     }
-
 
     var
         myInt: Integer;

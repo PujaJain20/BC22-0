@@ -1,6 +1,7 @@
 reportextension 50169 JobActualtobudgetEx extends "Job Actual to Budget (Cost)"
 {
-    RDLCLayout = 'JobActualtoBudgetCostt.rdl';
+    //RDLCLayout = 'JobActualtoBudgetCost.rdl';
+    RDLCLayout = 'AGTJobActualtoBudgetCost1.rdl';
     dataset
 
     {
