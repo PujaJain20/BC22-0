@@ -13,6 +13,27 @@ pageextension 50193 "Item Card Ex" extends "Item Card"
                 ApplicationArea = all;
             }
         }
+        addafter("Vendor No.")
+        {
+            field("Vendor Name"; Rec."Vendor Name")
+            {
+                ApplicationArea = all;
+            }
+        }
+        addafter(Inventory)
+        {
+            field("Qty. available"; Rec."Qty. available")
+            {
+                ApplicationArea = all;
+
+
+            }
+        }
+        modify("Vendor No.")
+        {
+            Visible = true;
+        }
+
     }
 
     actions
@@ -33,9 +54,21 @@ pageextension 50193 "Item Card Ex" extends "Item Card"
             }
 
         }
+
     }
+    trigger OnAfterGetRecord()
+    begin
+        Rec.CalcFields(Inventory, "Qty. on Sales Order", "Qty. on Asm. Component");
+        Rec."Qty. available" := Rec.Inventory - Rec."Qty. on Sales Order" - Rec."Qty. on Asm. Component";
+
+    end;
+
+
 
     var
-        myInt: Integer;
+
         Item: Record Item;
+        ven: Record Vendor;
+
+
 }

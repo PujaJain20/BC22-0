@@ -16,6 +16,19 @@ pageextension 50154 PostedSalesInvoice extends "Posted Sales Invoice"
     actions
     {
         // Add changes to page actions here
+        addafter("F&unctions")
+        {
+            action(salesinvoiceReport)
+            {
+                ApplicationArea = All;
+                Caption = 'AGT posted sales invoice';
+
+                trigger OnAction()
+                begin
+
+                end;
+            }
+        }
 
 
     }

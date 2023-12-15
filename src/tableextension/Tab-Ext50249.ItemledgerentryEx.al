@@ -1,14 +1,9 @@
-tableextension 50234 salesLineEx extends "Sales Line"
+tableextension 50249 ItemledgerentryEx extends "Item Ledger Entry"
 {
     fields
     {
-
-        field(50235; ToT; Decimal)
-        {
-            DataClassification = ToBeClassified;
-
-        }
-        field(50236; "Reference No."; Text[50])
+        // Add changes to table fields here
+        field(50250; "Reference No."; Text[50])
         {
             DataClassification = ToBeClassified;
         }

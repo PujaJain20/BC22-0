@@ -39,10 +39,27 @@ pageextension 50248 SalesorderEx extends "Sales Order"
                     Report.run(214, true, false, salesHeader);
                 end;
             }
+            action(BLind)
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                begin
+                    Report.Run(50281);
+                end;
+            }
+
+
         }
     }
 
+    trigger OnAfterGetRecord()
+    var
+        myInt: Integer;
+    begin
 
+
+    end;
 
 
 

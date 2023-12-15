@@ -13,24 +13,41 @@ pageextension 50189 "Purchase order Ex" extends "Purchase Order"
             {
                 ApplicationArea = All;
                 Caption = 'Purchase invoice';
+                Promoted = true;
+                PromotedCategory = Process;
+                Image = Print;
 
                 trigger OnAction()
                 begin
                     // Report.Run(50197);
+
+
                     CurrPage.SetSelectionFilter(Purchase_Header);
-                    Report.Run(50197, true, false, Purchase_Header);
+                    Report.Run(50004, true, false, Purchase_Header);
 
                 end;
             }
         }
     }
 
+    trigger OnAfterGetRecord()
 
 
+    begin
+        //CurrPage.PurchLines.Page.CalculateTotalAmount(Rec);
 
 
+    end;
 
     var
-        myInt: Integer;
+
         "Purchase_Header": Record "Purchase Header";
+        purchaseLine: Record "Purchase Line";
+        "Total Amount invoice": Decimal;
+        Totalqty: Decimal;
+        TotalUnitcost: Decimal;
+        purchaseOrderSubform: Page "Purchase Order Subform";
+        customcodeunit: Codeunit "Custom Codeunit";
+
+
 }

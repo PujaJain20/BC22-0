@@ -11,14 +11,19 @@ page 50276 Automaticallyvalue
         {
             group(GroupName)
             {
-                field(No; No)
+                field(value; Rec.value)
                 {
                     ApplicationArea = all;
+
                 }
                 field(StandardEnum; Rec.StandardEnum)
                 {
                     ApplicationArea = all;
+
                 }
+
+
+
             }
         }
     }
@@ -27,17 +32,26 @@ page 50276 Automaticallyvalue
     {
         area(Processing)
         {
-            action(Value)
+            action(updatevalue)
             {
                 ApplicationArea = All;
+
 
                 trigger OnAction()
                 var
                     Populatedvalue: Page Autopopulatedvalue;
-
+                    updatevalue: Record standardvalue;
                 begin
-                    // if Populatedvalue.RunModal() = Action::OK then
-                    //  Populatedvalue.AutopopulateValue(Rec."No.");
+
+                    if Page.RunModal(50273) = action::LookupOK then begin
+                        if updatevalue.ID <> ' ' then
+                            Rec.value := updatevalue.ID;
+                        Rec.StandardEnum := updatevalue.StandardEnum::Complete
+                    end;
+
+
+
+
 
 
 
@@ -46,18 +60,11 @@ page 50276 Automaticallyvalue
             }
         }
     }
-    procedure Copyvalue(Num: Text[50])
-    var
-        myInt: Integer;
 
-    begin
-
-        No := num;
-    end;
 
 
 
     var
         myInt: Integer;
-        No: Text[50];
+
 }

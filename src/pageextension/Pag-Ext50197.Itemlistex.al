@@ -2,7 +2,19 @@ pageextension 50197 Itemlistex extends "Item List"
 {
     layout
     {
-        // Add changes to page layout here
+        // Add changes to page layout here\
+        addafter("Vendor No.")
+        {
+            field("Vendor Name"; Rec."Vendor Name")
+            {
+                ApplicationArea = all;
+            }
+            field("Qty. available"; Rec."Qty. available")
+            {
+                ApplicationArea = all;
+            }
+        }
+
     }
 
     actions
@@ -25,21 +37,21 @@ pageextension 50197 Itemlistex extends "Item List"
             {
                 ApplicationArea = All;
 
-                trigger OnAction()
-
-                var
-                    CopyLinksAndNotesDialog: Page "Copy Links and Notes Dialog";
-                begin
-                    // CopyLinksAndNotesDialog.SetItemInfo(Rec."No.", Rec.Description);
-                    //  if CopyLinksAndNotesDialog.RunModal() = Action::OK then
-                    //  CopyLinksAndNotesDialog.CopyLinksAndNotes();
-                end;
 
 
             }
         }
     }
+    trigger OnAfterGetRecord()
+
+    begin
+
+        Rec.CalcFields(Inventory, "Qty. on Sales Order", "Qty. on Asm. Component");
+        Rec."Qty. available" := Rec.Inventory - Rec."Qty. on Sales Order" - Rec."Qty. on Asm. Component";
+    end;
+
 
     var
-        myInt: Integer;
+
+        item: Record item;
 }

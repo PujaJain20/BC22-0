@@ -18,6 +18,38 @@ codeunit 50156 "Custom Codeunit"
 
     // end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Item Journal Line", OnAfterCopyItemJnlLineFromSalesLine, '', false, false)]
+    local procedure OnAfterCopyItemJnlLineFromSalesLine(var ItemJnlLine: Record "Item Journal Line"; SalesLine: Record "Sales Line")
+    begin
+        ItemJnlLine."Reference No." := SalesLine."Reference No.";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', false, false)]
+    local procedure CopyFromItemLIne(ItemJournalLine: Record "Item Journal Line"; var NewItemLedgEntry: Record "Item Ledger Entry")
+
+    begin
+        NewItemLedgEntry."Reference No." := ItemJournalLine."Reference No.";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Copy Document Mgt.", OnAfterRecalculateSalesLine, '', false, false)]
+    local procedure OnAfterRecalculateSalesLine(var CopyThisLine: Boolean; var FromSalesHeader: Record "Sales Header"; var FromSalesLine: Record "Sales Line"; var ToSalesHeader: Record "Sales Header"; var ToSalesLine: Record "Sales Line")
+    begin
+        ToSalesLine."Reference No." := FromSalesLine."Reference No.";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Copy Document Mgt.", OnAfterTransfldsFromSalesToPurchLine, '', false, false)]
+    local procedure OnAfterTransfldsFromSalesToPurchLine(var FromSalesLine: Record "Sales Line"; var ToPurchaseLine: Record "Purchase Line")
+    begin
+        ToPurchaseLine."Reference No." := FromSalesLine."Reference No.";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Copy Document Mgt.", OnTransfldsFromSalesToPurchLineOnBeforeValidateQuantity, '', false, false)]
+    local procedure OnTransfldsFromSalesToPurchLineOnBeforeValidateQuantity(var ToPurchaseLine: Record "Purchase Line"; FromSalesLine: Record "Sales Line")
+    begin
+        ToPurchaseLine."Reference No." := FromSalesLine."Reference No.";
+
+    end;
+
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Customer Templ. Mgt.", OnBeforeApplyTemplate, '', false, false)]
     procedure ApplyTemplate(var Customer: Record Customer; CustomerTempl: Record "Customer Templ."; var IsHandled: Boolean)
@@ -104,10 +136,10 @@ codeunit 50156 "Custom Codeunit"
             EmailMessage.AddAttachment('FileName.pdf', 'PDF', InStr);
             if Email.Send(EmailMessage) then
                 Message('Email sent %1', Customer."E-Mail");
-
-
         end;
     end;
+
+
 
 
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', true, true)]
@@ -168,29 +200,18 @@ codeunit 50156 "Custom Codeunit"
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     var
 
 
         CustomerRecref: RecordRef;
         SalesInvoiveHeader: RecordRef;
         CustomerFieldref: FieldRef;
+        "Purchase_Header": Record "Purchase Header";
+        purchaseLine: Record "Purchase Line";
+        "Total Amount invoice": Decimal;
+        Totalqty: Decimal;
+        TotalUnitcost: Decimal;
+
 
 
 }

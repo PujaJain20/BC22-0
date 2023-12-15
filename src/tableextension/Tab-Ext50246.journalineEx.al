@@ -1,14 +1,8 @@
-tableextension 50234 salesLineEx extends "Sales Line"
+tableextension 50246 journalineEx extends "Item Journal Line"
 {
     fields
     {
-
-        field(50235; ToT; Decimal)
-        {
-            DataClassification = ToBeClassified;
-
-        }
-        field(50236; "Reference No."; Text[50])
+        field(50247; "Reference No."; Text[50])
         {
             DataClassification = ToBeClassified;
         }

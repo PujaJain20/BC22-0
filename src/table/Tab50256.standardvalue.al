@@ -1,10 +1,16 @@
 table 50256 standardvalue
 {
     DataClassification = ToBeClassified;
+    TableType = Temporary;
 
     fields
     {
-        field(1; value; text[50])
+        field(1; ID; text[50])
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(2; StandardEnum; Enum Enumobject)
         {
             DataClassification = ToBeClassified;
 
@@ -13,7 +19,7 @@ table 50256 standardvalue
 
     keys
     {
-        key(Key1; value)
+        key(Key1; ID)
         {
             Clustered = true;
         }

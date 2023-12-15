@@ -8,8 +8,67 @@ pageextension 50199 "PurchaselineEx" extends "Purchase Order Subform"
             field(BagTag; Rec.BagTag)
             {
                 ApplicationArea = all;
+
+            }
+            field("VAT %"; Rec."VAT %")
+            {
+                ApplicationArea = all;
+                Editable = true;
+
+            }
+            field("Reference No."; Rec."Reference No.")
+            {
+                ApplicationArea = all;
+            }
+
+        }
+
+        addafter("Total Amount Incl. VAT")
+        {
+            field("Total Amount Invoice"; Rec."Total Amount Invoice")
+            {
+                ApplicationArea = all;
+                Editable = false;
+
             }
         }
+        modify("Qty. to Invoice")
+        {
+            trigger OnAfterValidate()
+            var
+                myInt: Integer;
+            begin
+
+            end;
+        }
+        modify("Direct Unit Cost")
+        {
+            trigger OnAfterValidate()
+            var
+                myInt: Integer;
+            begin
+
+
+            end;
+        }
+        modify("Qty. to Receive")
+        {
+            trigger OnAfterValidate()
+            var
+                myInt: Integer;
+            begin
+
+
+            end;
+        }
+        modify("Line Discount Amount")
+        {
+            Visible = true;
+
+        }
+
+
+
     }
 
     actions
@@ -34,8 +93,38 @@ pageextension 50199 "PurchaselineEx" extends "Purchase Order Subform"
         }
 
     }
+    trigger OnAfterGetRecord()
+    var
+        myInt: Integer;
+    begin
+
+    end;
+
+    procedure CalculateTotalAmount(PurchaseHeader: Record "Purchase Header")
+
+
+    begin
+        clear(TotalUnitcost);
+        purchaseLine.Reset();
+        purchaseLine.SetRange("Document No.", PurchaseHeader."No.");
+        if purchaseLine.FindSet() then
+            repeat
+                TotalUnitcost := TotalUnitcost + (purchaseLine."Direct Unit Cost" * purchaseLine."Qty. to Invoice");
+            until purchaseLine.Next() = 0;
+
+        purchaseLine."Total Amount Invoice" := TotalUnitcost;
+        purchaseLine.Modify();
+
+    end;
+
+
 
     var
         myInt: Integer;
         purchaseLine: Record "Purchase Line";
+        "Total Amount invoice": Decimal;
+        Totalqty: Decimal;
+        TotalUnitcost: Decimal;
+        purchaseHeader: Record "Purchase Header";
+
 }

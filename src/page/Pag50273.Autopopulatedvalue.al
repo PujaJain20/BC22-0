@@ -6,17 +6,23 @@ page 50273 Autopopulatedvalue
     SourceTable = standardvalue;
 
 
+
     layout
     {
         area(Content)
         {
             group(GroupName)
             {
-                field(value; value)
+                field(ID; Rec.ID)
                 {
                     ApplicationArea = All;
 
                 }
+                field(StandardEnum; Rec.StandardEnum)
+                {
+                    ApplicationArea = all;
+                }
+
             }
         }
     }
@@ -30,39 +36,27 @@ page 50273 Autopopulatedvalue
             {
                 ApplicationArea = All;
 
-                trigger OnAction()
-                var
-                    Populatedvalue: Page Autopopulatedvalue;
 
-                begin
-                    //  if Populatedvalue.RunModal() = Action::OK then
-                    //    AutopopulateValue();
 
-                end;
+
+
             }
         }
     }
-    procedure AutopopulateValue(new: Code[20])
-    var
-        Autopopulate: Record AutomaticallyValue;
-
-    begin
-        new := value;
-
-    end;
-
-    trigger OnAfterGetRecord()
+    trigger OnOpenPage()
     var
         myInt: Integer;
-        Autopopulate: Record AutomaticallyValue;
-
     begin
-        No := value;
+        rec.Insert(true);
+
     end;
 
     var
         myInt: Integer;
         value: Text[100];
         No: Text[100];
+        Populatedvalue: Page Autopopulatedvalue;
+        updatevalue: Record standardvalue;
+
 
 }

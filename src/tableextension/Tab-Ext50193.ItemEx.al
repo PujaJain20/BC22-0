@@ -12,8 +12,25 @@ tableextension 50193 "Item Ex" extends Item
             OptionMembers = Arial,"Arial Narrow","Bell Mt";
             DataClassification = ToBeClassified;
         }
+        field(50196; "Vendor Name"; Text[100])
+        {
+
+            FieldClass = FlowField;
+            CalcFormula = lookup(Vendor.Name where("No." = field("Vendor No.")));
+
+
+        }
+        field(50197; "Qty. available"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+
+        }
+
+
+
     }
 
     var
-        myInt: Integer;
+        ven: Record Vendor;
+        item: Record item;
 }

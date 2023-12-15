@@ -8,6 +8,12 @@ pageextension 50288 jobtask extends "Job Task Lines Subform"
             field(Buyout; Rec.Buyout)
             {
                 ApplicationArea = all;
+                trigger OnValidate()
+                var
+                    myInt: Integer;
+                begin
+
+                end;
 
             }
 
@@ -20,9 +26,6 @@ pageextension 50288 jobtask extends "Job Task Lines Subform"
     var
         myInt: Integer;
     begin
-        if JobTask."Job Task No." = '1100' then begin
-            JobTask.Buyout := '0';
-        end
 
     end;
 
@@ -31,5 +34,6 @@ pageextension 50288 jobtask extends "Job Task Lines Subform"
         myInt: Integer;
         JobTask: Record "Job Task";
         JobNo: code[20];
+
 
 }

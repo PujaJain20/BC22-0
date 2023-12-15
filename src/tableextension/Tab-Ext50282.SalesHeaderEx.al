@@ -20,9 +20,6 @@ tableextension 50282 SalesHeaderEx extends "Sales Header"
                 else
                     Rec.DateCalculation := Abs(Rec."Document Date" - WDate);
 
-
-
-
             end;
         }
 

@@ -1,14 +1,13 @@
-tableextension 50234 salesLineEx extends "Sales Line"
+tableextension 50237 usersetupEx extends "User Setup"
 {
     fields
     {
-
-        field(50235; ToT; Decimal)
+        // Add changes to table fields here
+        field(50238; "Approver E-mail"; Text[50])
         {
             DataClassification = ToBeClassified;
-
         }
-        field(50236; "Reference No."; Text[50])
+        field(50239; "Approver Name"; Text[50])
         {
             DataClassification = ToBeClassified;
         }

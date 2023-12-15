@@ -2,23 +2,24 @@ table 50283 AutomaticallyValue
 {
     DataClassification = ToBeClassified;
 
+
     fields
     {
-        
-        field(3; Id; Text[50])
+
+        field(3; value; Text[50])
         {
             DataClassification = ToBeClassified;
         }
         field(2; StandardEnum; Enum Enumobject)
         {
-
+            DataClassification = ToBeClassified;
 
         }
     }
 
     keys
     {
-        key(Key1; Id)
+        key(Key1; value)
         {
             Clustered = true;
         }

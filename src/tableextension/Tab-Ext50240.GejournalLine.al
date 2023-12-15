@@ -1,14 +1,13 @@
-tableextension 50234 salesLineEx extends "Sales Line"
+tableextension 50240 GejournalLine extends "Gen. Journal Line"
 {
     fields
     {
-
-        field(50235; ToT; Decimal)
+        // Add changes to table fields here
+        field(50235; "Discount Amount"; Decimal)
         {
             DataClassification = ToBeClassified;
-
         }
-        field(50236; "Reference No."; Text[50])
+        field(50236; "Approver status"; Boolean)
         {
             DataClassification = ToBeClassified;
         }
@@ -23,6 +22,7 @@ tableextension 50234 salesLineEx extends "Sales Line"
     {
         // Add changes to field groups here
     }
+
 
     var
         myInt: Integer;

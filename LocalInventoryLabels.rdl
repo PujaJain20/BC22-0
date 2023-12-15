@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ItemNo_1_">
+          <DataField>ItemNo_1_</DataField>
+        </Field>
+        <Field Name="ItemDescription_1_">
+          <DataField>ItemDescription_1_</DataField>
+        </Field>
+        <Field Name="ItemUnit_1_">
+          <DataField>ItemUnit_1_</DataField>
+        </Field>
+        <Field Name="ItemShelf_1_">
+          <DataField>ItemShelf_1_</DataField>
+        </Field>
+        <Field Name="ColumnNo">
+          <DataField>ColumnNo</DataField>
+        </Field>
+        <Field Name="LabelsPerRow">
+          <DataField>LabelsPerRow</DataField>
+        </Field>
+        <Field Name="Item__No__">
+          <DataField>Item__No__</DataField>
+        </Field>
+        <Field Name="ItemNo_1__Control11">
+          <DataField>ItemNo_1__Control11</DataField>
+        </Field>
+        <Field Name="ItemDescription_1__Control13">
+          <DataField>ItemDescription_1__Control13</DataField>
+        </Field>
+        <Field Name="ItemUnit_1__Control15">
+          <DataField>ItemUnit_1__Control15</DataField>
+        </Field>
+        <Field Name="ItemShelf_1__Control17">
+          <DataField>ItemShelf_1__Control17</DataField>
+        </Field>
+        <Field Name="ItemNo_2_">
+          <DataField>ItemNo_2_</DataField>
+        </Field>
+        <Field Name="ItemDescription_2_">
+          <DataField>ItemDescription_2_</DataField>
+        </Field>
+        <Field Name="ItemUnit_2_">
+          <DataField>ItemUnit_2_</DataField>
+        </Field>
+        <Field Name="ItemShelf_2_">
+          <DataField>ItemShelf_2_</DataField>
+        </Field>
+        <Field Name="ItemNo_1__Control31">
+          <DataField>ItemNo_1__Control31</DataField>
+        </Field>
+        <Field Name="ItemDescription_1__Control33">
+          <DataField>ItemDescription_1__Control33</DataField>
+        </Field>
+        <Field Name="ItemUnit_1__Control35">
+          <DataField>ItemUnit_1__Control35</DataField>
+        </Field>
+        <Field Name="ItemShelf_1__Control37">
+          <DataField>ItemShelf_1__Control37</DataField>
+        </Field>
+        <Field Name="ItemNo_2__Control39">
+          <DataField>ItemNo_2__Control39</DataField>
+        </Field>
+        <Field Name="ItemDescription_2__Control41">
+          <DataField>ItemDescription_2__Control41</DataField>
+        </Field>
+        <Field Name="ItemUnit_2__Control43">
+          <DataField>ItemUnit_2__Control43</DataField>
+        </Field>
+        <Field Name="ItemShelf_2__Control45">
+          <DataField>ItemShelf_2__Control45</DataField>
+        </Field>
+        <Field Name="ItemNo_3_">
+          <DataField>ItemNo_3_</DataField>
+        </Field>
+        <Field Name="ItemDescription_3_">
+          <DataField>ItemDescription_3_</DataField>
+        </Field>
+        <Field Name="ItemUnit_3_">
+          <DataField>ItemUnit_3_</DataField>
+        </Field>
+        <Field Name="ItemShelf_3_">
+          <DataField>ItemShelf_3_</DataField>
+        </Field>
+        <Field Name="ItemNo_1_Caption">
+          <DataField>ItemNo_1_Caption</DataField>
+        </Field>
+        <Field Name="ItemDescription_1_Caption">
+          <DataField>ItemDescription_1_Caption</DataField>
+        </Field>
+        <Field Name="ItemUnit_1_Caption">
+          <DataField>ItemUnit_1_Caption</DataField>
+        </Field>
+        <Field Name="ItemShelf_1_Caption">
+          <DataField>ItemShelf_1_Caption</DataField>
+        </Field>
+        <Field Name="ItemNo_1__Control11Caption">
+          <DataField>ItemNo_1__Control11Caption</DataField>
+        </Field>
+        <Field Name="ItemDescription_1__Control13Caption">
+          <DataField>ItemDescription_1__Control13Caption</DataField>
+        </Field>
+        <Field Name="ItemUnit_1__Control15Caption">
+          <DataField>ItemUnit_1__Control15Caption</DataField>
+        </Field>
+        <Field Name="ItemShelf_1__Control17Caption">
+          <DataField>ItemShelf_1__Control17Caption</DataField>
+        </Field>
+        <Field Name="ItemNo_2_Caption">
+          <DataField>ItemNo_2_Caption</DataField>
+        </Field>
+        <Field Name="ItemDescription_2_Caption">
+          <DataField>ItemDescription_2_Caption</DataField>
+        </Field>
+        <Field Name="ItemUnit_2_Caption">
+          <DataField>ItemUnit_2_Caption</DataField>
+        </Field>
+        <Field Name="ItemShelf_2_Caption">
+          <DataField>ItemShelf_2_Caption</DataField>
+        </Field>
+        <Field Name="ItemNo_1__Control31Caption">
+          <DataField>ItemNo_1__Control31Caption</DataField>
+        </Field>
+        <Field Name="ItemDescription_1__Control33Caption">
+          <DataField>ItemDescription_1__Control33Caption</DataField>
+        </Field>
+        <Field Name="ItemUnit_1__Control35Caption">
+          <DataField>ItemUnit_1__Control35Caption</DataField>
+        </Field>
+        <Field Name="ItemShelf_1__Control37Caption">
+          <DataField>ItemShelf_1__Control37Caption</DataField>
+        </Field>
+        <Field Name="ItemNo_2__Control39Caption">
+          <DataField>ItemNo_2__Control39Caption</DataField>
+        </Field>
+        <Field Name="ItemDescription_2__Control41Caption">
+          <DataField>ItemDescription_2__Control41Caption</DataField>
+        </Field>
+        <Field Name="ItemUnit_2__Control43Caption">
+          <DataField>ItemUnit_2__Control43Caption</DataField>
+        </Field>
+        <Field Name="ItemShelf_2__Control45Caption">
+          <DataField>ItemShelf_2__Control45Caption</DataField>
+        </Field>
+        <Field Name="ItemNo_3_Caption">
+          <DataField>ItemNo_3_Caption</DataField>
+        </Field>
+        <Field Name="ItemDescription_3_Caption">
+          <DataField>ItemDescription_3_Caption</DataField>
+        </Field>
+        <Field Name="ItemUnit_3_Caption">
+          <DataField>ItemUnit_3_Caption</DataField>
+        </Field>
+        <Field Name="ItemShelf_3_Caption">
+          <DataField>ItemShelf_3_Caption</DataField>
+        </Field>
+        <Field Name="BlankLine_Number">
+          <DataField>BlankLine_Number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
