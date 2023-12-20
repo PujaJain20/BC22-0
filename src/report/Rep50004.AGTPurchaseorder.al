@@ -593,9 +593,11 @@ report 50004 "AGT Purchase order"
                 column(PurchLine_VATPct; "VAT %")
                 {
                 }
+                // AGT_PJ_08/12/2023++
                 column(CustomAmount; CustomAmount) { }
                 column(CustomVat; CustomVat) { }
                 column(CustomTotal; CustomTotal) { }
+                //AGT_PJ_08/12/2023--
 
                 trigger OnAfterGetRecord()
                 var
@@ -618,20 +620,6 @@ report 50004 "AGT Purchase order"
                         ItemNo := "Item Reference No.";
 
                     FormatDocument.SetPurchaseLine("Purchase Line", FormattedQuanitity, FormattedDirectUnitCost, FormattedVATPct, FormattedLineAmount);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 end;
 
@@ -954,7 +942,7 @@ report 50004 "AGT Purchase order"
                     if ArchiveDocument then
                         ArchiveManagement.StorePurchDocument("Purchase Header", LogInteraction);
                 end;
-                // AGT_PJ08/12/2023 ++
+                // AGT_PJ_08_/12/2023 ++
                 CustomAmount := 0;
                 CustomTotal := 0;
                 CustomVat := 0;
@@ -965,12 +953,11 @@ report 50004 "AGT Purchase order"
                 if PurchaseLIne.FindSet() then
                     repeat
                         CustomAmount += purchaseLIne.amount;
-
-
                     until purchaseLIne.next = 0;
-                CustomVat += (10 / 100 * CustomAmount);
+
+                CustomVat += (PurchaseLIne."VAT %" / 100 * CustomAmount);
                 CustomTotal += CustomAmount + CustomVat;
-                // AGT_PJ08/12/2023 --
+                // AGT_PJ_08/12/2023 --
 
 
             end;
