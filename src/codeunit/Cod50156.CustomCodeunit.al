@@ -6,6 +6,7 @@ codeunit 50156 "Custom Codeunit"
     begin
         if ReportId = Report::"Pick Instruction" then
             NewReportId := Report::PickInstruction;
+            
     end;
 
     // [EventSubscriber(ObjectType::page, page::"Sales Order", OnAfterActionEvent, 'Pick instruction', false, false)]
@@ -22,6 +23,7 @@ codeunit 50156 "Custom Codeunit"
     local procedure OnAfterCopyItemJnlLineFromSalesLine(var ItemJnlLine: Record "Item Journal Line"; SalesLine: Record "Sales Line")
     begin
         ItemJnlLine."Reference No." := SalesLine."Reference No.";
+    
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', false, false)]
@@ -57,6 +59,7 @@ codeunit 50156 "Custom Codeunit"
         myInt: Integer;
     begin
         Customer."Payment selection method" := CustomerTempl."Payment selection method";
+        
     end;
 
     procedure Onactionapply(customerNo: code[20])
