@@ -11,13 +11,33 @@ pageextension 50239 salesLineEx extends "Sales Order Subform"
             }
 
         }
-    }
+        //AGT_PJ_02122023++
+        modify("Planned Delivery Date")
+        {
+            StyleExpr = styexptext;
+        }
+        modify("Planned Shipment Date")
+        {
+            StyleExpr = styexptext;
 
-    actions
-    {
-        // Add changes to page actions here
+        }
+        modify("Shipment Date")
+        {
+            StyleExpr = styexptext;
+        }
     }
+    trigger OnAfterGetRecord()
+    var
+
+    begin
+        styexptext := Changecolor.Changefieldvaluecolor(Rec);
+    end;
+
+
+    //AGT_PJ_02122023--
 
     var
-        myInt: Integer;
+
+        styexptext: Text;
+        Changecolor: Codeunit "Custom Codeunit";
 }

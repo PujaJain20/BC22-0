@@ -32,42 +32,42 @@ pageextension 50199 "PurchaselineEx" extends "Purchase Order Subform"
 
             }
         }
-        modify("Qty. to Invoice")
-        {
-            trigger OnAfterValidate()
-            var
-                myInt: Integer;
-            begin
 
-            end;
-        }
-        modify("Direct Unit Cost")
-        {
-            trigger OnAfterValidate()
-            var
-                myInt: Integer;
-            begin
-
-
-            end;
-        }
+        //AGT_PJ_02012023 ++
         modify("Qty. to Receive")
         {
             trigger OnAfterValidate()
             var
                 myInt: Integer;
             begin
-
-
+                if rec."Qty. to Receive" > 0 then
+                    rec."Qty. to Invoice" := 0;
             end;
+
         }
+
+        modify(Quantity)
+        {
+            trigger OnAfterValidate()
+            var
+                myInt: Integer;
+            begin
+                if rec.Quantity > 0 then begin
+                    rec."Qty. to Receive" := 0;
+                    rec."Qty. to Invoice" := 0;
+                end
+                else
+                    rec."Qty. to Receive" := 0;
+                rec."Qty. to Invoice" := 0;
+            end;
+
+        }
+        //AGT_PJ_02012023 --
         modify("Line Discount Amount")
         {
             Visible = true;
 
         }
-
-
 
     }
 

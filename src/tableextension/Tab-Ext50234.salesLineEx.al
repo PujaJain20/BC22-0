@@ -12,6 +12,37 @@ tableextension 50234 salesLineEx extends "Sales Line"
         {
             DataClassification = ToBeClassified;
         }
+        //AGT_PJ_02122023++
+        modify("Planned Delivery Date")
+        {
+            trigger OnAfterValidate()
+            var
+
+            begin
+                styexptext := Changecolor.Changefieldvaluecolor(Rec);
+            end;
+        }
+        modify("Planned Shipment Date")
+        {
+            trigger OnAfterValidate()
+            var
+
+            begin
+                styexptext := Changecolor.Changefieldvaluecolor(Rec);
+            end;
+        }
+        modify("Shipment Date")
+        {
+            trigger OnAfterValidate()
+            var
+
+            begin
+                styexptext := Changecolor.Changefieldvaluecolor(Rec);
+            end;
+        }
+
+        //AGT_PJ_02122023--
+
     }
 
     keys
@@ -25,5 +56,7 @@ tableextension 50234 salesLineEx extends "Sales Line"
     }
 
     var
-        myInt: Integer;
+
+        styexptext: Text;
+        Changecolor: Codeunit "Custom Codeunit";
 }

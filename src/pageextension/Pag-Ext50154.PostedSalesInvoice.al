@@ -11,6 +11,7 @@ pageextension 50154 PostedSalesInvoice extends "Posted Sales Invoice"
             }
         }
 
+
     }
 
     actions

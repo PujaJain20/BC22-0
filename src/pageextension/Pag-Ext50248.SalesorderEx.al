@@ -20,6 +20,7 @@ pageextension 50248 SalesorderEx extends "Sales Order"
 
 
 
+
     }
 
 
@@ -52,15 +53,24 @@ pageextension 50248 SalesorderEx extends "Sales Order"
 
         }
     }
-
+    //AGT_PJ_02012023 ++
     trigger OnAfterGetRecord()
     var
-        myInt: Integer;
     begin
 
+        begin
+            Salesshipment.Reset();
+            Salesshipment.SetRange("Order No.", Rec."No.");
+            if Salesshipment.FindFirst() then begin
+
+                rec."Shipment Date" := Salesshipment."Posting Date"
+            end;
+
+        end;
 
     end;
 
+    //AGT_PJ_02012023 --
 
 
 
@@ -77,4 +87,6 @@ pageextension 50248 SalesorderEx extends "Sales Order"
         WorkDate: Text;
         DateCalculation: Text;
         month: Text[20];
+        Salesshipment: Record "Sales Shipment Header";
+
 }

@@ -7,6 +7,7 @@ pageextension 50210 postedpurchaseinvoice extends "Posted Purch. Invoice Subform
         {
             Visible = true;
 
+
         }
 
 

@@ -6,7 +6,7 @@ codeunit 50156 "Custom Codeunit"
     begin
         if ReportId = Report::"Pick Instruction" then
             NewReportId := Report::PickInstruction;
-            
+
     end;
 
     // [EventSubscriber(ObjectType::page, page::"Sales Order", OnAfterActionEvent, 'Pick instruction', false, false)]
@@ -23,7 +23,7 @@ codeunit 50156 "Custom Codeunit"
     local procedure OnAfterCopyItemJnlLineFromSalesLine(var ItemJnlLine: Record "Item Journal Line"; SalesLine: Record "Sales Line")
     begin
         ItemJnlLine."Reference No." := SalesLine."Reference No.";
-    
+
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', false, false)]
@@ -59,7 +59,7 @@ codeunit 50156 "Custom Codeunit"
         myInt: Integer;
     begin
         Customer."Payment selection method" := CustomerTempl."Payment selection method";
-        
+
     end;
 
     procedure Onactionapply(customerNo: code[20])
@@ -199,8 +199,25 @@ codeunit 50156 "Custom Codeunit"
         TempEmailItem."Send CC" := '111@q.com;333@b.com';
         TempEmailItem."Send BCC" := '222@c.com';
     end;
+    //AGT_PJ_02122023++
+    procedure Changefieldvaluecolor(salesline: Record "Sales Line"): Text[20]
+    var
+    begin
+
+        if ((salesline."Planned Delivery Date" < Today()) AND (salesline."Planned Shipment Date" < Today()) AND (salesline."Shipment Date" < Today)) then
+            exit('Unfavorable');
 
 
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Sales Order", OnBeforeValidateEvent, 'Sell-to Customer Name', false, false)]
+    local procedure OnInsertRecordEvent(var Rec: Record "Sales Header"; var xRec: Record "Sales Header")
+    begin
+
+        rec."Shipment Date" := 0D;
+
+    end;
+    //AGT_PJ_02122023--
 
 
     var
@@ -214,6 +231,7 @@ codeunit 50156 "Custom Codeunit"
         "Total Amount invoice": Decimal;
         Totalqty: Decimal;
         TotalUnitcost: Decimal;
+        styleexptext: Text;
 
 
 
