@@ -16,11 +16,6 @@ pageextension 50248 SalesorderEx extends "Sales Order"
             Visible = true;
         }
 
-
-
-
-
-
     }
 
 
@@ -60,6 +55,7 @@ pageextension 50248 SalesorderEx extends "Sales Order"
 
         begin
             Salesshipment.Reset();
+
             Salesshipment.SetRange("Order No.", Rec."No.");
             if Salesshipment.FindFirst() then begin
 

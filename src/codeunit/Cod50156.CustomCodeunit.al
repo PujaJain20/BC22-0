@@ -142,9 +142,6 @@ codeunit 50156 "Custom Codeunit"
         end;
     end;
 
-
-
-
     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', true, true)]
     local procedure OnBeforeDrillDown(DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef);
     var
@@ -203,19 +200,14 @@ codeunit 50156 "Custom Codeunit"
     procedure Changefieldvaluecolor(salesline: Record "Sales Line"): Text[20]
     var
     begin
-
         if ((salesline."Planned Delivery Date" < Today()) AND (salesline."Planned Shipment Date" < Today()) AND (salesline."Shipment Date" < Today)) then
             exit('Unfavorable');
-
-
     end;
 
     [EventSubscriber(ObjectType::Page, Page::"Sales Order", OnBeforeValidateEvent, 'Sell-to Customer Name', false, false)]
     local procedure OnInsertRecordEvent(var Rec: Record "Sales Header"; var xRec: Record "Sales Header")
     begin
-
         rec."Shipment Date" := 0D;
-
     end;
     //AGT_PJ_02122023--
 
