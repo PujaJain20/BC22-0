@@ -44,6 +44,6 @@ report 50216 "Sales word layout"
 
     //AGT_PJ_03012023 --
     var
-        myInt: Integer;
+
         PostingDate: Text;
 }

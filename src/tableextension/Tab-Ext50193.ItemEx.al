@@ -26,9 +26,24 @@ tableextension 50193 "Item Ex" extends Item
 
         }
 
+        // modify("No.")
+        // {
+        //     trigger OnAfterValidate()
+        //     var
+        //         myInt: Integer;
+        //     begin
+        //         Rec.CalcFields(Inventory, "Qty. on Sales Order", "Qty. on Asm. Component");
+        //         Rec."Qty. available" := Rec.Inventory - Rec."Qty. on Sales Order" - Rec."Qty. on Asm. Component";
+
+        //     end;
+        // }
+
 
 
     }
+
+
+
 
     var
         ven: Record Vendor;

@@ -27,12 +27,14 @@ pageextension 50193 "Item Card Ex" extends "Item Card"
                 ApplicationArea = all;
 
 
+
             }
         }
         modify("Vendor No.")
         {
             Visible = true;
         }
+
 
     }
 
@@ -58,12 +60,17 @@ pageextension 50193 "Item Card Ex" extends "Item Card"
     }
     trigger OnAfterGetRecord()
     begin
+        GetINventory();
+    end;
+
+    procedure GetINventory()
+    var
+        myInt: Integer;
+    begin
         Rec.CalcFields(Inventory, "Qty. on Sales Order", "Qty. on Asm. Component");
         Rec."Qty. available" := Rec.Inventory - Rec."Qty. on Sales Order" - Rec."Qty. on Asm. Component";
 
     end;
-
-
 
     var
 
