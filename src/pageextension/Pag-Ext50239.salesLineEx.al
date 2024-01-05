@@ -9,6 +9,10 @@ pageextension 50239 salesLineEx extends "Sales Order Subform"
             {
                 ApplicationArea = all;
             }
+            field("Qty. on Available"; Rec."Qty. on Available")
+            {
+                ApplicationArea = all;
+            }
 
         }
         //AGT_PJ_02122023++

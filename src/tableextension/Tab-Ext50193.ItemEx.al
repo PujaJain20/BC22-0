@@ -14,10 +14,8 @@ tableextension 50193 "Item Ex" extends Item
         }
         field(50196; "Vendor Name"; Text[100])
         {
-
             FieldClass = FlowField;
             CalcFormula = lookup(Vendor.Name where("No." = field("Vendor No.")));
-
 
         }
         field(50197; "Qty. available"; Decimal)
@@ -26,23 +24,42 @@ tableextension 50193 "Item Ex" extends Item
 
         }
 
-        // modify("No.")
-        // {
-        //     trigger OnAfterValidate()
-        //     var
-        //         myInt: Integer;
-        //     begin
-        //         Rec.CalcFields(Inventory, "Qty. on Sales Order", "Qty. on Asm. Component");
-        //         Rec."Qty. available" := Rec.Inventory - Rec."Qty. on Sales Order" - Rec."Qty. on Asm. Component";
 
-        //     end;
-        // }
-
+        modify("Qty. on Asm. Component")
+        {
+            trigger OnAfterValidate()
+            var
+                myInt: Integer;
+            begin
+                CalculateQtyonAvalible();
+            end;
+        }
+        modify("No.")
+        {
+            trigger OnAfterValidate()
+            var
+                myInt: Integer;
+            begin
+                //  CalculateQtyonAvalible();
+            end;
+        }
 
 
     }
 
 
+    procedure CalculateQtyonAvalible()
+    var
+
+    begin
+        Rec.CalcFields(Inventory, "Qty. on Sales Order", "Qty. on Asm. Component");
+        Rec."Qty. available" := Rec.Inventory - Rec."Qty. on Sales Order" - Rec."Qty. on Asm. Component";
+
+        //CurrPage.Update(true);
+        rec.Modify();
+
+
+    end;
 
 
     var

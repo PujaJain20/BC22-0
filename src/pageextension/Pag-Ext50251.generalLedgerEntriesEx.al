@@ -4,7 +4,7 @@ pageextension 50251 generalLedgerEntriesEx extends "General Ledger Entries"
     {
         // Add changes to page layout here
     }
-
+    //AGT_PJ_04/01/2023++
     actions
     {
         // Add changes to page actions here
@@ -17,10 +17,14 @@ pageextension 50251 generalLedgerEntriesEx extends "General Ledger Entries"
 
                 trigger OnAction()
                 begin
-
-                    if rec."Document No." <> ' ' then begin
-                        rec.Delete();
-                    end;
+                    //AGT_PJ_05012023 ++
+                    generalledgerentries.Reset();
+                    generalledgerentries.SetRange("Document No.", Rec."Document No.");
+                    if generalledgerentries.FindSet() then
+                        repeat
+                            generalledgerentries.Delete();
+                        until generalledgerentries.Next() = 0;
+                    //AGT_PJ_05012023 --
 
                 end;
             }
@@ -30,4 +34,5 @@ pageextension 50251 generalLedgerEntriesEx extends "General Ledger Entries"
     var
         myInt: Integer;
         generalledgerentries: Record "G/L Entry";
+    //AGT_PJ_04/01/2023--
 }

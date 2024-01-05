@@ -16,6 +16,7 @@ pageextension 50248 SalesorderEx extends "Sales Order"
             Visible = true;
         }
 
+
     }
 
 

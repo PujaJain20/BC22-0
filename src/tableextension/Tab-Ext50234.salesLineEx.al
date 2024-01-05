@@ -42,6 +42,14 @@ tableextension 50234 salesLineEx extends "Sales Line"
         }
 
         //AGT_PJ_02122023--
+        field(50237; "Qty. on Available"; Decimal)
+        {
+            //AGT_PJ_05012023 ++
+            FieldClass = FlowField;
+            CalcFormula = lookup(Item."Qty. available" where("No." = field("No.")));
+            Editable = false;
+            //AGT_PJ_05012023 --
+        }
 
     }
 
