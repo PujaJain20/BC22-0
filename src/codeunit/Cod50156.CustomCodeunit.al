@@ -210,6 +210,15 @@ codeunit 50156 "Custom Codeunit"
         rec."Shipment Date" := 0D;
     end;
     //AGT_PJ_02122023--
+    // [EventSubscriber(ObjectType::Table, Database::Job, OnBeforeInitJobNo, '', false, false)]
+    // local procedure OnBeforeValidateNo(var IsHandled: Boolean; var Job: Record Job)
+    // begin
+    //     IsHandled := true;
+    //     if IsHandled then begin
+    //         exit;
+    //     end;
+    // end;
+
 
 
     var
