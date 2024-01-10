@@ -10,8 +10,34 @@ pageextension 50267 jobcardEx extends "Job Card"
             ApplicationArea = all;
             Visible = true;
             Importance = Promoted;
+        }
+        modify("No.")
+        {
+            //Editable = false;
 
+            trigger OnAssistEdit()
+            var
+                myInt: Integer;
+            begin
+                if rec."Sell-to Customer No." = '' then begin
+                    CurrPage.Update(false);
+                end
+                else
+                    CurrPage.Update(false);
 
+            end;
+        }
+        modify("Sell-to Customer Name")
+        {
+            trigger OnAfterValidate()
+            var
+                myInt: Integer;
+            begin
+                if rec."Sell-to Customer Name" = '' then begin
+                    CurrPage.Update(false);
+                end;
+
+            end;
         }
     }
 
@@ -24,16 +50,18 @@ pageextension 50267 jobcardEx extends "Job Card"
 
     begin
         //AGT_PJ_09/01/24 ++
-        Clear(Newno);
+        //  Clear(New);
         job.Reset();
         job.SetRange("Bill-to Customer No.", rec."Bill-to Customer No.");
+        job.SetRange("Bill-to Name", rec."Bill-to Name");
         if job.FindLast() then begin
             // repeat
+            Clear(New);
             if job."No." <> '' then begin
-                if job."No." > Newno then
-                    Newno := job."No.";
+                if job."No." > New then
+                    New := job."No.";
                 //  until job.Next() = 0;
-                rec."No." := IncStr(Newno);
+                rec."No." := IncStr(New);
                 rec.Insert();
             end
             else begin
@@ -45,10 +73,6 @@ pageextension 50267 jobcardEx extends "Job Card"
             rec."No." := rec."Bill-to Customer No." + '-' + '001';
             rec.Insert();
         end;
-
-
-
-
     end;
 
     //AGT_PJ_09/01/24 --
@@ -60,4 +84,5 @@ pageextension 50267 jobcardEx extends "Job Card"
         noseries: Record "No. Series";
         job: Record Job;
         customer: Record customer;
+        New: Code[20];
 }

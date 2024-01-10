@@ -3,6 +3,10 @@ tableextension 50258 ContactEx extends Contact
 
     fields
     {
+        field(50260; "BIlling E-mail"; Text[250])
+        {
+            DataClassification = ToBeClassified;
+        }
 
         // Add changes to table fields here
         modify("Mobile Phone No.")

@@ -1,4 +1,4 @@
-enum 50266 Enumobject
+enum 50266 Entity
 {
     Extensible = true;
 
@@ -8,4 +8,5 @@ enum 50266 Enumobject
     value(2; Update) { }
     value(3; Process) { }
     value(4; Complete) { }
+    value(5; Contact) { }
 }

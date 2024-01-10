@@ -4,10 +4,7 @@ tableextension 50268 jobCardEx extends Job
     {
         // Add changes to table fields here
 
-
-
     }
-
     keys
     {
         // Add changes to keys here

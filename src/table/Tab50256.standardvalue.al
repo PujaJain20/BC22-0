@@ -10,7 +10,7 @@ table 50256 standardvalue
             DataClassification = ToBeClassified;
 
         }
-        field(2; StandardEnum; Enum Enumobject)
+        field(2; StandardEnum; Enum Entity)
         {
             DataClassification = ToBeClassified;
 
