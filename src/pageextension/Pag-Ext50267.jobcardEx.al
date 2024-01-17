@@ -3,6 +3,13 @@ pageextension 50267 jobcardEx extends "Job Card"
     layout
     {
         // Add changes to page layout here
+        addafter("No.")
+        {
+            field("job type"; Rec."job type")
+            {
+                ApplicationArea = all;
+            }
+        }
 
 
         modify("Sell-to Customer No.")
@@ -19,11 +26,11 @@ pageextension 50267 jobcardEx extends "Job Card"
             var
                 myInt: Integer;
             begin
-                if rec."Sell-to Customer No." = '' then begin
-                    CurrPage.Update(false);
-                end
-                else
-                    CurrPage.Update(false);
+                // if rec."Sell-to Customer No." = '' then begin
+                /// CurrPage.Update(false);
+                //  end
+                //  else
+                //   CurrPage.Update(false);
 
             end;
         }
@@ -33,11 +40,11 @@ pageextension 50267 jobcardEx extends "Job Card"
             var
                 myInt: Integer;
             begin
-                if rec."Sell-to Customer Name" = '' then begin
-                    CurrPage.Update(false);
-                end;
-
+                //   if rec."Sell-to Customer Name" = '' then begin
+                //      CurrPage.Update(false);
             end;
+
+            // end;
         }
     }
 
@@ -51,28 +58,28 @@ pageextension 50267 jobcardEx extends "Job Card"
     begin
         //AGT_PJ_09/01/24 ++
         //  Clear(New);
-        job.Reset();
-        job.SetRange("Bill-to Customer No.", rec."Bill-to Customer No.");
-        job.SetRange("Bill-to Name", rec."Bill-to Name");
-        if job.FindLast() then begin
-            // repeat
-            Clear(New);
-            if job."No." <> '' then begin
-                if job."No." > New then
-                    New := job."No.";
-                //  until job.Next() = 0;
-                rec."No." := IncStr(New);
-                rec.Insert();
-            end
-            else begin
-                rec."No." := rec."Bill-to Customer No." + '-' + '001';
-                rec.Insert();
-            end;
-        end
-        else begin
-            rec."No." := rec."Bill-to Customer No." + '-' + '001';
-            rec.Insert();
-        end;
+        // job.Reset();
+        // job.SetRange("Bill-to Customer No.", rec."Bill-to Customer No.");
+        //  job.SetRange("Bill-to Name", rec."Bill-to Name");
+        // if job.FindLast() then begin
+        // repeat
+        //  Clear(New);
+        //  if job."No." <> '' then begin
+        //   if job."No." > New then
+        //     New := job."No.";
+        //  until job.Next() = 0;
+        //  rec."No." := IncStr(New);
+        //   rec.Insert();
+        //  end
+        // else begin
+        //  rec."No." := rec."Bill-to Customer No." + '-' + '001';
+        // rec.Insert();
+        //  end;
+        // end
+        // else begin
+        //  rec."No." := rec."Bill-to Customer No." + '-' + '001';
+        //  rec.Insert();
+        // end;
     end;
 
     //AGT_PJ_09/01/24 --

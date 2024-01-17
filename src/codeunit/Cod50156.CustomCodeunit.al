@@ -218,6 +218,10 @@ codeunit 50156 "Custom Codeunit"
     //         exit;
     //     end;
     // end;
+
+
+
+    //AGT_PJ_10/01/2023 ++
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Email Address Lookup", OnLookupAddressFromEntity, '', false, false)]
     local procedure OnLookupAddressFromEntity(var Address: Record "Email Address Lookup" temporary; var IsHandled: Boolean; Entity: Enum "Email Address Entity")
     begin
@@ -242,7 +246,7 @@ codeunit 50156 "Custom Codeunit"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Email Address Lookup", OnGetSuggestedAddresses, '', false, false)]
     local procedure OnGetSuggestedAddresses(var Address: Record "Email Address Lookup" temporary)
     begin
-        if Address."E-Mail Address" <> '' then begin
+        if Address."E-Mail Address" = '' then begin
             contact.Reset();
             contact.SetRange(Name, Address.Name);
             contact.SetRange("No.", Address."Contact No.");
@@ -255,15 +259,32 @@ codeunit 50156 "Custom Codeunit"
                 Address.Rename(contact."BIlling E-mail", contact.Name, Entity::Contact);
 
                 //  Address.Mark(true);
+            end;
+
+        end
+        else
+            if Address."E-Mail Address" = Address."E-Mail Address" then begin
+                contact.Reset();
+                contact.SetRange(Name, Address.Name);
+                contact.SetRange("No.", Address."Contact No.");
+
+                // contact.SetRange();
+
+                if contact.FindFirst() then begin
+
+                    //Address."E-Mail Address" := contact."BIlling E-mail";
+                    Address.Rename(contact."BIlling E-mail", contact.Name, Entity::Contact);
+
+                end;
+
+
 
             end;
 
 
-        end;
-
     end;
 
-
+    //AGT_PJ_10/01/2023 --
     var
 
 
@@ -278,6 +299,8 @@ codeunit 50156 "Custom Codeunit"
         styleexptext: Text;
         contact: Record Contact;
         contactlist: Page "Contact List";
+        Entity: Enum "Email Address Entity";
+
 
 
 
