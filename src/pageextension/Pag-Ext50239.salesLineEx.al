@@ -16,13 +16,13 @@ pageextension 50239 salesLineEx extends "Sales Order Subform"
             field("Job No."; Rec."Job No.")
             {
                 ApplicationArea = all;
-                Editable = true;
+                Editable = false;
 
             }
             field("Job Task No."; Rec."Job Task No.")
             {
                 ApplicationArea = all;
-                Editable = true;
+                Editable = false;
 
             }
 
@@ -60,31 +60,68 @@ pageextension 50239 salesLineEx extends "Sales Order Subform"
                     jobs: Record Job;
                     jobtask: Record "Job Task";
                     jobtaskRec: Record "Job Task";
+                    jobsrec: Record Job;
+                    customer: Record Customer;
 
                 begin
-
+                    jobs.Reset();
+                    //AGT_PJ_17012024 ++
                     if rec.Type = rec.Type::Resource then begin
-                        jobs.SetRange("No.", rec."No.");
-                        jobs.SetRange("No.", jobtask."Job No.");
-                        if jobs.FindFirst() then begin
+                        jobsrec.SetRange("No.", rec."No.");
+                        if jobsrec.FindFirst() then begin
+                            if customer.get(rec."Sell-to Customer No.") then
+                                if rec."Job No." = '' then begin
+                                    jobs.Init();
+                                    jobs.Validate("job type", rec."No.");
+                                    jobs."Bill-to Customer No." := rec."Sell-to Customer No.";
+                                    jobs."Sell-to Customer No." := rec."Sell-to Customer No.";
+                                    jobs."Sell-to Customer Name" := customer.Name;
+                                    // jobs.Validate("Sell-to Customer No.", rec."Sell-to Customer No.");
+                                    jobs.Validate(Description, rec.Description);
+                                    jobs.Insert(true);
+                                    rec.Validate("Job No.", jobs."No.");
+                                    rec."Job Task No." := '101';
+                                    jobtask.Reset();
+                                    jobtask.SetRange("Job No.", jobsrec."No.");
+                                    if jobtask.FindFirst() then begin
+                                        jobtaskRec.Init();
+                                        repeat
+                                            jobtaskRec."Job No." := jobs."No.";
+                                            jobtaskRec."Job Task No." := jobtask."Job Task No.";
+                                            //  jobtaskRec.Validate("Job No.", jobs."No.");
+                                            //  jobtaskRec.Validate("Job Task No.", jobtask."Job Task No.");
+                                            jobtaskRec.TransferFields(jobtask, false);
+                                            jobtaskRec.Insert(true);
+                                        until jobtask.Next() = 0;
+                                    end;
+                                    Message('job Has been created ');
+
+                                end
+                                else
+                                    Message('job already created');
+                            //AGT_PJ_17012024 --
+
+                        end
+                        else begin
+                            //if not jobsrec.FindFirst() then begin
                             if rec."Job No." = '' then begin
                                 jobs.Init();
                                 jobs.Validate("job type", rec."No.");
-                                jobs.Validate("Sell-to Customer No.", rec."Sell-to Customer No.");
+                                //  jobs.Validate("Sell-to Customer No.", rec."Sell-to Customer No.");
+                                jobs."Bill-to Customer No." := rec."Sell-to Customer No.";
+                                jobs."Sell-to Customer No." := rec."Sell-to Customer No.";
+
                                 jobs.Validate(Description, rec.Description);
                                 jobs.Insert(true);
-                                jobtask.Validate("Job Task No.", jobtask."Job Task No.");
-                                jobtask.Insert(true);
                                 rec.Validate("Job No.", jobs."No.");
                                 rec."Job Task No." := '101';
-                                Message('job Has been created ');
+                                Message('job Has been Created');
 
-                            end;
-
-                        end
-                        else
-                            Message('job already created');
-
+                            end
+                            else
+                                Message('jobs already created');
+                            // end;
+                        end;
 
                     end
                     else
