@@ -14,7 +14,7 @@ pageextension 50189 "Purchase order Ex" extends "Purchase Order"
                 ApplicationArea = All;
                 Caption = 'Purchase invoice';
                 Promoted = true;
-                PromotedCategory = Process;
+                PromotedCategory = Category10;
                 Image = Print;
 
                 trigger OnAction()
@@ -28,6 +28,26 @@ pageextension 50189 "Purchase order Ex" extends "Purchase Order"
                 end;
             }
         }
+        addafter(Functions_GetSalesOrder)
+        {
+
+            action(PO)
+            {
+                ApplicationArea = All;
+                Caption = 'PO';
+                Promoted = true;
+                PromotedCategory = Category10;
+                Image = Print;
+
+                trigger OnAction()
+                begin
+                    CurrPage.SetSelectionFilter(Purchase_Header);
+                    Report.Run(50227, true, false, Purchase_Header);
+                end;
+            }
+
+        }
+
     }
 
     trigger OnAfterGetRecord()

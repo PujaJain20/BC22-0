@@ -64,6 +64,20 @@ pageextension 50239 salesLineEx extends "Sales Order Subform"
                     customer: Record Customer;
 
                 begin
+                    // if rec."Job No." = '' then begin
+                    //             jobs.Init();
+                    //             jobs.Validate("job type", rec."No.");
+                    //             //  jobs.Validate("Sell-to Customer No.", rec."Sell-to Customer No.");
+                    //             jobs."Bill-to Customer No." := rec."Sell-to Customer No.";
+                    //             jobs."Sell-to Customer No." := rec."Sell-to Customer No.";
+
+                    //             jobs.Validate(Description, rec.Description);
+                    //             jobs.Insert(true);
+                    //             rec.Validate("Job No.", jobs."No.");
+                    //             rec."Job Task No." := '101';
+                    //             Message('job Has been Created');
+
+                    //         end
                     jobs.Reset();
                     //AGT_PJ_17012024 ++
                     if rec.Type = rec.Type::Resource then begin
@@ -95,34 +109,13 @@ pageextension 50239 salesLineEx extends "Sales Order Subform"
                                         until jobtask.Next() = 0;
                                     end;
                                     Message('job Has been created ');
-
                                 end
                                 else
                                     Message('job already created');
                             //AGT_PJ_17012024 --
-
                         end
-                        else begin
-                            //if not jobsrec.FindFirst() then begin
-                            if rec."Job No." = '' then begin
-                                jobs.Init();
-                                jobs.Validate("job type", rec."No.");
-                                //  jobs.Validate("Sell-to Customer No.", rec."Sell-to Customer No.");
-                                jobs."Bill-to Customer No." := rec."Sell-to Customer No.";
-                                jobs."Sell-to Customer No." := rec."Sell-to Customer No.";
-
-                                jobs.Validate(Description, rec.Description);
-                                jobs.Insert(true);
-                                rec.Validate("Job No.", jobs."No.");
-                                rec."Job Task No." := '101';
-                                Message('job Has been Created');
-
-                            end
-                            else
-                                Message('jobs already created');
-                            // end;
-                        end;
-
+                        //if not jobsrec.FindFirst() then begin
+                        // end;
                     end
                     else
                         Message('This resource does not exist');
