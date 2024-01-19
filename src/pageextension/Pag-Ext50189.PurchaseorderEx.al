@@ -7,30 +7,29 @@ pageextension 50189 "Purchase order Ex" extends "Purchase Order"
 
     actions
     {
+        // addafter(Functions_GetSalesOrder)
+        // {
+        //     action(PurchaseInvoice)
+        //     {
+        //         ApplicationArea = All;
+        //         Caption = 'Purchase invoice';
+        //         Promoted = true;
+        //         PromotedCategory = Category10;
+        //         Image = Print;
+
+        //         trigger OnAction()
+        //         begin
+        //             // Report.Run(50197);
+
+
+        //             CurrPage.SetSelectionFilter(Purchase_Header);
+        //             Report.Run(50004, true, false, Purchase_Header);
+
+        //       end;
+        //  }
+        // }
         addafter(Functions_GetSalesOrder)
         {
-            action(PurchaseInvoice)
-            {
-                ApplicationArea = All;
-                Caption = 'Purchase invoice';
-                Promoted = true;
-                PromotedCategory = Category10;
-                Image = Print;
-
-                trigger OnAction()
-                begin
-                    // Report.Run(50197);
-
-
-                    CurrPage.SetSelectionFilter(Purchase_Header);
-                    Report.Run(50004, true, false, Purchase_Header);
-
-                end;
-            }
-        }
-        addafter(Functions_GetSalesOrder)
-        {
-
             action(PO)
             {
                 ApplicationArea = All;

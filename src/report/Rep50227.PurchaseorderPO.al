@@ -1,5 +1,6 @@
 report 50227 "Purchase order PO"
 {
+    //AGT_Pj_18/01/2023 ++
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = Word;
@@ -30,9 +31,6 @@ report 50227 "Purchase order PO"
             column(Ship_to_Name; "Ship-to Name") { }
             column(Ship_to_Code; "Ship-to Code") { }
             column(Buy_from_Vendor_Name; "Buy-from Vendor Name") { }
-
-
-
 
 
             dataitem("Purchase Line"; "Purchase Line")
@@ -84,6 +82,8 @@ report 50227 "Purchase order PO"
 
         }
     }
+
+    //AGT_Pj_18/01/2023 --
 
     requestpage
     {
